@@ -18,14 +18,6 @@ public class AdminController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult Index(UserDTO user)
-    {
-        //Add Email And Username To The Data Base
-
-        return View();
-    }
-
     #endregion
 
     #region List Of Users

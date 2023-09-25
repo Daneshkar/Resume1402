@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Resume.Presenation.Models.Entities.Education;
-using Resume.Presenation.Models.ResumeDbContext;
+using Reume.Application.Services.Interface;
 
 namespace Resume.Presenation.Controllers;
 
@@ -12,12 +12,11 @@ public class EducationController : Controller
 {
     #region Ctor
 
-    //Dependency Injection
-    private ResumeDbContext _context;
+    private readonly IEducationService _educationService;
 
-    public EducationController(ResumeDbContext context )
+    public EducationController(IEducationService educationService )
     {
-        _context = context;
+        _educationService = educationService;
     }
 
     #endregion
@@ -25,38 +24,29 @@ public class EducationController : Controller
     #region List Of Educations
 
     [HttpGet]
-    public IActionResult ListOfEducations()
+    public async Task<IActionResult> ListOfEducations()
     {
-        //List Of Educations
-        var listOfEducations = _context.Educations.ToList();
+        List<Education> educations = await _educationService.GetListOfEducationsAsync();
 
-        //Get a Education
-        Education education2 = _context.Educations.OrderByDescending(p=> p.Id).First();
-
-        return View();
+        return View(educations);
     }
 
     #endregion
 
     #region Create An Education
 
-    public IActionResult CreateAnEducation()
+    public async Task<IActionResult> CreateAnEducation()
     {
-        #region Create Record
+        return RedirectToAction(nameof(ListOfEducations));
+    }
 
-        Education educationDataBase = new Education()
-        {
-            EducationTitle = "Sepehr",
-            EducationDuration = "20023",
-            Description = "Sepehr"
-        };
+    #endregion
 
-        _context.Educations.Add(educationDataBase);
-        _context.SaveChanges();
+    #region Delete An Education
 
-        #endregion
-
-        return View();
+    public async Task<IActionResult> DeleteAnEducation(int educationId)
+    {
+        return RedirectToAction(nameof(ListOfEducations));
     }
 
     #endregion

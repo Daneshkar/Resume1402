@@ -1,4 +1,4 @@
-﻿namespace Resume.Presenation.Models
+﻿namespace Resume.Domain.DTOs
 {
     public class UserDTO
     {
