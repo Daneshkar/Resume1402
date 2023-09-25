@@ -1,6 +1,5 @@
 ﻿#region Using
 
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Resume.Presenation.Models.Entities.Education;
 using Resume.Presenation.Models.ResumeDbContext;
