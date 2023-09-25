@@ -44,18 +44,6 @@ public class EducationController : Controller
     {
         #region Create Record
 
-        List<Education> educationList = new List<Education>();
-
-        Education education = new Education()
-        {
-            Id = 1,
-            EducationTitle = "Master",
-            EducationDuration = "2012",
-            Description = "Degree"
-        };
-
-        educationList.Add(education);
-
         Education educationDataBase = new Education()
         {
             EducationTitle = "Sepehr",
@@ -63,7 +51,7 @@ public class EducationController : Controller
             Description = "Sepehr"
         };
 
-        _context.Educations.Add(education);
+        _context.Educations.Add(educationDataBase);
         _context.SaveChanges();
 
         #endregion
