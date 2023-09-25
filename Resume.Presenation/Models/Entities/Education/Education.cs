@@ -4,7 +4,6 @@ namespace Resume.Presenation.Models.Entities.Education;
 
 public class Education
 {
-    [Key]
     public int Id { get; set; }
 
     public string EducationTitle { get; set; }

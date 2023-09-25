@@ -1,6 +1,7 @@
 ﻿#region Usings 
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Resume.Presenation.Models.Entities.Education;
 using Resume.Presenation.Models.ResumeDbContext;
 
@@ -25,13 +26,11 @@ public class EducationController : Controller
     #region List Of Educations
 
     [HttpGet]
-    public IActionResult ListOfEducations()
+    public async Task<IActionResult> ListOfEducations()
     {
-        //List Of Educations
-        var listOfEducations = _context.Educations.ToList();
-
         //Get a Education
-        Education education2 = _context.Educations.OrderByDescending(p=> p.Id).First();
+        List<Education> education = await _context.Educations
+                                                  .ToListAsync();
 
         return View();
     }
@@ -40,23 +39,49 @@ public class EducationController : Controller
 
     #region Create An Education
 
-    public IActionResult CreateAnEducation()
+    public async Task<IActionResult> CreateAnEducation()
     {
-        #region Create Record
+        #region Fill Education Instance
 
-        Education educationDataBase = new Education()
-        {
-            EducationTitle = "Sepehr",
-            EducationDuration = "20023",
-            Description = "Sepehr"
-        };
+        Education education = new Education();
 
-        _context.Educations.Add(educationDataBase);
-        _context.SaveChanges();
+        education.EducationDuration = "2022-2023";
+        education.EducationTitle = "Military";
+        education.Description = "That was ... ";
 
         #endregion
 
-        return View();
+        #region Add Recorde To The Data Base
+
+        await _context.Educations.AddAsync(education);
+        await _context.SaveChangesAsync();
+
+        #endregion
+
+        return RedirectToAction(nameof(ListOfEducations));
+    }
+
+    #endregion
+
+    #region Delete An Education
+
+    public async Task<IActionResult> DeleteAnEducation(int educationId)
+    {
+        #region Find Current Record 
+
+        Education? education = await _context.Educations
+                                             .FirstOrDefaultAsync(p=> p.Id == educationId); 
+
+        #endregion
+
+        #region Remove Record 
+
+        _context.Educations.Remove(education);
+        await _context.SaveChangesAsync();
+
+        #endregion
+
+        return RedirectToAction(nameof(ListOfEducations));
     }
 
     #endregion
