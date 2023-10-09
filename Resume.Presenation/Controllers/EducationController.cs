@@ -1,7 +1,7 @@
 ﻿#region Usings 
 
 using Microsoft.AspNetCore.Mvc;
-using Resume.Presenation.Models.Entities.Education;
+using Resume.Domain.Models.Entities.Education;
 using Reume.Application.Services.Interface;
 
 namespace Resume.Presenation.Controllers;

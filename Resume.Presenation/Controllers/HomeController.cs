@@ -2,9 +2,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Resume.Presenation.Models;
+using Resume.Domain.Models.Entities.Education;
+using Resume.Presenation.Models.Entities.Experience;
+using Resume.Presenation.Models.Entities.MySkills;
 using Resume.Presenation.Models.ResumeDbContext;
-using System.Diagnostics;
 namespace Resume.Presenation.Controllers;
 
 #endregion
@@ -27,12 +28,48 @@ public class HomeController : Controller
         #region My Skills 
 
         //Query With Async
-        var mySkillsAsync = await _context.MySkills
+        List<MySkills> mySkillsAsync = await _context.MySkills
                                           .ToListAsync();
 
         //Query With Synce
-        var mySkillsSynce = _context.MySkills
+        List<MySkills> mySkillsSynce = _context.MySkills
                                     .ToList();
+
+        #endregion
+
+        #region Educations
+
+        //Query With Async
+        List<Education> educationsAsync = await _context.Educations
+                                                        .ToListAsync();
+
+        //Query With Synce
+        List<Education> educationsSynce = _context.Educations
+                                                  .ToList();
+
+        #endregion
+
+        #region Experience
+
+        //With Async
+        List<Experience> experiencesAsync = await _context.Experiences
+                                                           .ToListAsync();
+
+        //With Synce
+        List<Experience> experiencesSynce = _context.Experiences
+                                                    .ToList();
+
+        #endregion
+
+        #region ViewBag() , ViewData[] , TempData[]
+
+        //ViewBag() , ViewData[] , TempData[]
+
+        //ViewBag.Experience = experiencesAsync;
+
+        //ViewBag.MySkills = mySkillsAsync;
+
+        //ViewBag.Educations = educationsAsync;
 
         #endregion
 

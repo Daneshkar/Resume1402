@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Resume.Presenation.Models.Entities.Education;
+namespace Resume.Domain.Models.Entities.Education;
 
 public class Education
 {

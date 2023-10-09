@@ -1,6 +1,6 @@
 ﻿#region Using
 
-using Resume.Presenation.Models.Entities.Education;
+using Resume.Domain.Models.Entities.Education;
 using System;
 using System.Collections.Generic;
 using System.Linq;
