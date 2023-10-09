@@ -6,6 +6,8 @@ using Resume.Domain.Models.Entities.Education;
 using Resume.Presenation.Models.Entities.Experience;
 using Resume.Presenation.Models.Entities.MySkills;
 using Resume.Presenation.Models.ResumeDbContext;
+using Reume.Application.DTOs.SiteSide.Home_Index;
+
 namespace Resume.Presenation.Controllers;
 
 #endregion
@@ -61,6 +63,16 @@ public class HomeController : Controller
 
         #endregion
 
+        #region Fill Instance Model 
+
+        HomeIndexModelDTO model = new HomeIndexModelDTO();
+
+        model.Experience = experiencesAsync;
+        model.Educations = educationsAsync;
+        model.MySkills = mySkillsSynce;
+
+        #endregion
+
         #region ViewBag() , ViewData[] , TempData[]
 
         //ViewBag() , ViewData[] , TempData[]
@@ -73,6 +85,6 @@ public class HomeController : Controller
 
         #endregion
 
-        return View();
+        return View(model);
     }
 }

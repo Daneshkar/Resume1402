@@ -1,13 +1,7 @@
-﻿
+﻿@model Reume.Application.DTOs.SiteSide.Home_Index.HomeIndexModelDTO
 
 @{
     ViewData["Title"] = "Home Page";
-
-    var educations = ViewBag.Educations as ;
-
-    var experiences = ViewBag.Experience as ;
-
-    var mySkills = ViewBag.MySkills as ;
 }
 
 <!-- Content -->
@@ -22,7 +16,7 @@
         <h2 class="title title--h2"><img class="title-icon" src="/SiteSample/assets/icons/icon-education.svg" alt="" /> Education</h2>
         <div class="timeline">
 
-            @foreach (var education in educations)
+            @foreach (var education in Model.Educations)
             {
                 <!-- Item -->
                 <article class="timeline__item">
@@ -46,7 +40,7 @@
         <h2 class="title title--h2"><img class="title-icon" src="/SiteSample/assets/icons/icon-experience.svg" alt="" /> Experience</h2>
         <div class="timeline">
 
-            @foreach (var experience in experiences)
+            @foreach (var experience in Model.Experience)
             {
                 <!-- Item -->
                 <article class="timeline__item">
@@ -70,7 +64,7 @@
         <h2 class="title title--h2">My Skills</h2>
         <div class="box-gray">
 
-            @foreach (var mySkill in mySkills)
+            @foreach (var mySkill in Model.MySkills)
             {
                 <!-- Progress -->
                 <div class="progress">
