@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Presenation", "Resum
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resume.Application", "Resume.Application", "{FC8E1BFE-83EC-4EEF-B018-1DBD68B6AB60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reume.Application", "Reume.Application\Reume.Application.csproj", "{20E8BE75-1F55-42BF-B56B-9C67D29BD99C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reume.Application", "Reume.Application\Reume.Application.csproj", "{20E8BE75-1F55-42BF-B56B-9C67D29BD99C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resume.Domian", "Resume.Domian", "{8CF80E50-BEDB-44B1-B6D0-8D1E2BC38D09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.Domain", "Resume.Domain\Resume.Domain.csproj", "{2E75E95C-9585-4983-8939-917ACA6FFEAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Domain", "Resume.Domain\Resume.Domain.csproj", "{2E75E95C-9585-4983-8939-917ACA6FFEAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resume.Infrastructure", "Resume.Infrastructure", "{4C5C57C1-88B0-4654-B57F-CF8BD026C0C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.Infrastructure", "Resume.Infrastructure\Resume.Infrastructure.csproj", "{04087469-DA81-4E91-9151-00C25EEF75C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resume.Infrastructure", "Resume.Infrastructure\Resume.Infrastructure.csproj", "{04087469-DA81-4E91-9151-00C25EEF75C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

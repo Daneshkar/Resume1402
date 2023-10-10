@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Resume.Domain.Models.Entities.Education;
+using Resume.Domain.RepositoryInterface;
 using Resume.Presenation.Models.Entities.Experience;
 using Resume.Presenation.Models.Entities.MySkills;
 using Resume.Presenation.Models.ResumeDbContext;
@@ -16,11 +17,17 @@ public class HomeController : Controller
 {
     #region Ctor
 
-    private readonly ResumeDbContext _context;
+    private readonly IEducationRepository _educationRepository;
+    private readonly IExperienceRepository _experienceRepository;
+    private readonly IMySkillsRepsitory _mySkillsRepsitory;
 
-    public HomeController(ResumeDbContext context)
+    public HomeController(IEducationRepository educationRepository,
+                          IExperienceRepository experienceRepository,
+                          IMySkillsRepsitory mySkillsRepsitory)
     {
-        _context = context;
+        _educationRepository = educationRepository;
+        _experienceRepository = experienceRepository;
+        _mySkillsRepsitory = mySkillsRepsitory;
     }
 
     #endregion
@@ -29,37 +36,19 @@ public class HomeController : Controller
     {
         #region My Skills 
 
-        //Query With Async
-        List<MySkills> mySkillsAsync = await _context.MySkills
-                                          .ToListAsync();
-
-        //Query With Synce
-        List<MySkills> mySkillsSynce = _context.MySkills
-                                    .ToList();
+        List<MySkills> mySkills = _mySkillsRepsitory.GetListOfMySkills();
 
         #endregion
 
         #region Educations
 
-        //Query With Async
-        List<Education> educationsAsync = await _context.Educations
-                                                        .ToListAsync();
-
-        //Query With Synce
-        List<Education> educationsSynce = _context.Educations
-                                                  .ToList();
+        List<Education> educations = _educationRepository.GetListOFEducations();
 
         #endregion
 
         #region Experience
 
-        //With Async
-        List<Experience> experiencesAsync = await _context.Experiences
-                                                           .ToListAsync();
-
-        //With Synce
-        List<Experience> experiencesSynce = _context.Experiences
-                                                    .ToList();
+        List<Experience> experiences = _experienceRepository.GetListOfExperience();
 
         #endregion
 
@@ -67,9 +56,9 @@ public class HomeController : Controller
 
         HomeIndexModelDTO model = new HomeIndexModelDTO();
 
-        model.Experience = experiencesAsync;
-        model.Educations = educationsAsync;
-        model.MySkills = mySkillsSynce;
+        model.Experience = experiences;
+        model.Educations = educations;
+        model.MySkills = mySkills;
 
         #endregion
 
