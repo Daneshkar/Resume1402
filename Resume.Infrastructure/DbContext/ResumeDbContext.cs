@@ -1,7 +1,7 @@
 ﻿#region Using
 
 using Microsoft.EntityFrameworkCore;
-using Resume.Presenation.Models.Entities.Education;
+using Resume.Domain.Models.Entities.Education;
 using Resume.Presenation.Models.Entities.Experience;
 using Resume.Presenation.Models.Entities.MySkills;
 
