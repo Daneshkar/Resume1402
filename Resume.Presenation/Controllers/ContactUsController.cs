@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Resume.Domain.Entities.ContactUs;
 using Resume.Domain.RepositoryInterface;
 using Resume.Presenation.Models.ResumeDbContext;
+using Reume.Application.DTOs.SiteSide.ContactUs;
 
 namespace Resume.Presenation.Controllers;
 
@@ -18,7 +19,7 @@ public class ContactUsController : Controller
 
     public ContactUsController(IContactUsRepository contactUsRepository)
     {
-            _contactUsRepository = contactUsRepository;
+        _contactUsRepository = contactUsRepository;
     }
 
     #endregion
@@ -31,10 +32,23 @@ public class ContactUsController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> ContactUs(ContactUs contact)
+    public async Task<IActionResult> ContactUs(ContactUsDTO contactUsDTO)
     {
+        ContactUs contact = new ContactUs()
+        {
+            FullName = contactUsDTO.FullName,
+            Message = contactUsDTO.Message,
+            Mobile = contactUsDTO.Mobile
+        };
+
+        ContactUsLocation Location = new ContactUsLocation()
+        {
+            Address = contactUsDTO.Address,
+        };
+
         //Add To The Data Base
         await _contactUsRepository.AddContactUsToTheDataBase(contact);
+        await _contactUsRepository.AddLocationToTheDataBase(Location);
 
         return View();
     }
