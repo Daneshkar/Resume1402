@@ -32,5 +32,7 @@ public class ResumeDbContext : DbContext
 
     public DbSet<ContactUs> ContactUs { get; set; }
 
+    public DbSet<ContactUsLocation>  locations { get; set; }
+
     #endregion
 }
