@@ -1,4 +1,6 @@
 
+using Resume.Domain.RepositoryInterface;
+using Resume.Infrastructure.Repository;
 using Resume.Presenation.Models.ResumeDbContext;
 
 namespace Resume.Presenation
@@ -13,6 +15,10 @@ namespace Resume.Presenation
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ResumeDbContext>();
+
+            builder.Services.AddScoped<IEducationRepository , EducationRepository>();
+            builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
+            builder.Services.AddScoped<IMySkillsRepsitory, MySkillsRepository>();
 
             var app = builder.Build();
 
