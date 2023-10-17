@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Resume.Domain.Entities.ContactUs;
+﻿using Resume.Domain.Entities.ContactUs;
 using Resume.Domain.RepositoryInterface;
 using Resume.Presenation.Models.ResumeDbContext;
 

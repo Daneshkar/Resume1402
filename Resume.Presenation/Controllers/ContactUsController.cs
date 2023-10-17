@@ -6,6 +6,7 @@ using Resume.Domain.Entities.ContactUs;
 using Resume.Domain.RepositoryInterface;
 using Resume.Presenation.Models.ResumeDbContext;
 using Reume.Application.DTOs.SiteSide.ContactUs;
+using Reume.Application.Services.Interface;
 
 namespace Resume.Presenation.Controllers;
 
@@ -15,11 +16,11 @@ public class ContactUsController : Controller
 {
     #region Ctor
 
-    private readonly IContactUsRepository _contactUsRepository;
+    private readonly IContactUsService _contactUsService;
 
-    public ContactUsController(IContactUsRepository contactUsRepository)
+    public ContactUsController(IContactUsService contactUsService)
     {
-        _contactUsRepository = contactUsRepository;
+        _contactUsService = contactUsService;
     }
 
     #endregion
@@ -31,24 +32,14 @@ public class ContactUsController : Controller
         return View();
     }
 
-    [HttpPost]
+    [HttpPost, ValidateAntiForgeryToken]
     public async Task<IActionResult> ContactUs(ContactUsDTO contactUsDTO)
     {
-        ContactUs contact = new ContactUs()
+        if (ModelState.IsValid)
         {
-            FullName = contactUsDTO.FullName,
-            Message = contactUsDTO.Message,
-            Mobile = contactUsDTO.Mobile
-        };
-
-        ContactUsLocation Location = new ContactUsLocation()
-        {
-            Address = contactUsDTO.Address,
-        };
-
-        //Add To The Data Base
-        await _contactUsRepository.AddContactUsToTheDataBase(contact);
-        await _contactUsRepository.AddLocationToTheDataBase(Location);
+            await _contactUsService.AddNewContactUsMessage(contactUsDTO);
+            return RedirectToAction("Index" , "Home");
+        }
 
         return View();
     }
