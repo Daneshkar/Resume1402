@@ -18,10 +18,10 @@ namespace Resume.Presenation
 
             #region Repositories
 
-            builder.Services.AddScoped<IEducationRepository , EducationRepository>();
-            builder.Services.AddScoped<IExperienceRepository , ExperienceRepository>();
-            builder.Services.AddScoped<IMySkillsRepsitory , MySkillsRepository>();
-            builder.Services.AddScoped<IContactUsRepository , ContactUsRepository>();
+            builder.Services.AddScoped<IEducationRepository, EducationRepository>();
+            builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
+            builder.Services.AddScoped<IMySkillsRepsitory, MySkillsRepository>();
+            builder.Services.AddScoped<IContactUsRepository, ContactUsRepository>();
 
             builder.Services.AddDbContext<ResumeDbContext>();
 
@@ -33,7 +33,7 @@ namespace Resume.Presenation
             builder.Services.AddScoped<IDashboardService, DashboardService>();
             builder.Services.AddScoped<IEducationService, EducationService>();
             builder.Services.AddScoped<IExperienceService, ExperienceService>();
-            builder.Services.AddScoped <IMySkillService, MySkillService>();
+            builder.Services.AddScoped<IMySkillService, MySkillService>();
 
             #endregion
 
@@ -53,6 +53,10 @@ namespace Resume.Presenation
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+            name: "area",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",
