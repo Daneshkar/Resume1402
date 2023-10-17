@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Resume.Presenation.Models.ResumeDbContext;
 
@@ -11,9 +12,11 @@ using Resume.Presenation.Models.ResumeDbContext;
 namespace Resume.Presenation.Migrations
 {
     [DbContext(typeof(ResumeDbContext))]
-    partial class ResumeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231016154827_Inti-ContactUs")]
+    partial class IntiContactUs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,23 +54,6 @@ namespace Resume.Presenation.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ContactUs");
-                });
-
-            modelBuilder.Entity("Resume.Domain.Entities.ContactUs.ContactUsLocation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("locations");
                 });
 
             modelBuilder.Entity("Resume.Domain.Models.Entities.Education.Education", b =>
