@@ -1,5 +1,6 @@
 ﻿using Resume.Domain.Models.Entities.Education;
 using Resume.Domain.RepositoryInterface;
+using Reume.Application.DTOs.AdminSide.Education;
 using Reume.Application.Services.Interface;
 
 namespace Reume.Application.Services.Implement;
@@ -10,7 +11,68 @@ public class EducationService : IEducationService
 
     public EducationService(IEducationRepository educationRepository)
     {
-            _educationRepository = educationRepository;
+        _educationRepository = educationRepository;
+    }
+
+    public async Task AddEducationToDataBase(CreateAnEducationAdminSideDTO model)
+    {
+        #region Object Mapping
+
+        Education education = new Education();
+
+        education.EducationTitle = model.EducationTitle;
+        education.EducationDuration = model.EducationDuration;
+        education.Description = model.Description;
+
+        #endregion
+
+        #region Add Education To Data Base
+
+        await _educationRepository.AddEducationToDataBase(education);
+
+        #endregion
+    }
+
+    public async Task EditAnEducation(Education education)
+    {
+        await _educationRepository.EditAnEducation(education);
+    }
+
+    public async Task DeleteAnEducation(Education education)
+    {
+        await _educationRepository.DeleteAnEducation(education);
+    }
+
+    public async Task<Education> GetAnEducationByIdAsync(int educationId)
+    {
+        return await _educationRepository.GetAnEducationByIdAsync(educationId);
+    }
+
+    public List<ListOFAnEducationAdminSideDTO> GetListOfAnEducationForShowinAdminPanel()
+    {
+        #region Get List Of An Educations From Data Base 
+
+        List<Education> educations = _educationRepository.GetListOFEducations();
+
+        #endregion
+
+        #region Object Mapping
+
+        List<ListOFAnEducationAdminSideDTO> returnModel = new List<ListOFAnEducationAdminSideDTO>();
+
+        foreach (var edu in educations)
+        {
+            ListOFAnEducationAdminSideDTO childModel = new ListOFAnEducationAdminSideDTO();
+
+            childModel.EducationTitle = edu.EducationTitle;
+            childModel.Duration = edu.EducationDuration;
+            childModel.Id = edu.Id;
+
+            returnModel.Add(childModel);
+        }
+        #endregion
+
+        return returnModel;
     }
 
     public List<Education> GetListOFEducations()
