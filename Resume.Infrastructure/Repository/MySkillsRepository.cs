@@ -4,7 +4,7 @@ using Resume.Presenation.Models.ResumeDbContext;
 
 namespace Resume.Infrastructure.Repository
 {
-    public class MySkillsRepository : IMySkillsRepsitory
+    public class MySkillsRepository : IMySkillsRepository
     {
         #region Ctor
 
@@ -18,8 +18,18 @@ namespace Resume.Infrastructure.Repository
         #endregion
 
         public List<MySkills> GetListOfMySkills()
-        {
-            return _context.MySkills.ToList();  
-        }
+            => _context.MySkills.ToList();
+
+        public MySkills? FindOne(int id)
+            => _context.MySkills.Find(id);
+
+        public void Add(MySkills mySkill)
+            => _context.MySkills.Add(mySkill);
+
+        public void Remove(MySkills mySkill)
+            => _context.MySkills.Remove(mySkill);
+
+        public void Update(MySkills mySkills)
+            => _context.MySkills.Update(mySkills);        
     }
 }

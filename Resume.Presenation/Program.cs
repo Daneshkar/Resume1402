@@ -1,7 +1,9 @@
 
 using Resume.Domain.RepositoryInterface;
+using Resume.Infrastructure;
 using Resume.Infrastructure.Repository;
 using Resume.Presenation.Models.ResumeDbContext;
+using Reume.Application;
 using Reume.Application.Services.Implement;
 using Reume.Application.Services.Interface;
 
@@ -20,7 +22,7 @@ namespace Resume.Presenation
 
             builder.Services.AddScoped<IEducationRepository, EducationRepository>();
             builder.Services.AddScoped<IExperienceRepository, ExperienceRepository>();
-            builder.Services.AddScoped<IMySkillsRepsitory, MySkillsRepository>();
+            builder.Services.AddScoped<IMySkillsRepository, MySkillsRepository>();
             builder.Services.AddScoped<IContactUsRepository, ContactUsRepository>();
 
             builder.Services.AddDbContext<ResumeDbContext>();
@@ -34,6 +36,7 @@ namespace Resume.Presenation
             builder.Services.AddScoped<IEducationService, EducationService>();
             builder.Services.AddScoped<IExperienceService, ExperienceService>();
             builder.Services.AddScoped<IMySkillService, MySkillService>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             #endregion
 

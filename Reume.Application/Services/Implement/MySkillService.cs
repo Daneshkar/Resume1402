@@ -8,17 +8,39 @@ public class MySkillService : IMySkillService
 {
 	#region Ctor
 
-	private readonly IMySkillsRepsitory _mySkillsRepsitory;
+	private readonly IMySkillsRepository _mySkillsRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public MySkillService(IMySkillsRepsitory mySkillsRepsitory)
+    public MySkillService(IMySkillsRepository mySkillsRepsitory ,
+        IUnitOfWork unitOfWork)
     {
-        _mySkillsRepsitory = mySkillsRepsitory;
+        _mySkillsRepository = mySkillsRepsitory;
+        _unitOfWork = unitOfWork;
     }
 
     #endregion
 
     public List<MySkills> GetListOfMySkills()
+        => _mySkillsRepository.GetListOfMySkills();
+
+    public MySkills? FindOne(int id)
+    => _mySkillsRepository.FindOne(id);
+
+    public void CreateMySkill(MySkills mySkills)
     {
-        return _mySkillsRepsitory.GetListOfMySkills();
+        _mySkillsRepository.Add(mySkills);
+        _unitOfWork.SaveChanges();
+    }
+
+    public void UpdateMySkill(MySkills mySkills)
+    {
+        _mySkillsRepository.Update(mySkills);
+        _unitOfWork.SaveChanges();
+    }
+
+    public void DeleteMySkill(MySkills mySkills)
+    {
+        _mySkillsRepository.Remove(mySkills);
+        _unitOfWork.SaveChanges();
     }
 }
