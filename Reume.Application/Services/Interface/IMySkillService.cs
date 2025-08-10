@@ -1,5 +1,5 @@
-﻿using Resume.Domain.RepositoryInterface;
-using Resume.Presenation.Models.Entities.MySkills;
+﻿using Resume.Domain.Entities.MySkills;
+using Resume.Domain.RepositoryInterface;
 
 namespace Reume.Application.Services.Interface;
 

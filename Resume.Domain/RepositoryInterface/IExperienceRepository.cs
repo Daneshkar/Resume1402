@@ -1,4 +1,4 @@
-﻿using Resume.Presenation.Models.Entities.Experience;
+﻿using Resume.Domain.Entities.Experience;
 
 namespace Resume.Domain.RepositoryInterface
 {
@@ -6,5 +6,14 @@ namespace Resume.Domain.RepositoryInterface
     {
         //GetListOfExperience
         List<Experience> GetListOfExperience();
+
+        //AdminPanel
+        Task AddExperienceToDataBase(Experience experience);
+
+        Task<Experience> GetAnExperienceByIdAsync(int experienceId);
+
+        Task EditAnExperience(Experience experience);
+
+        Task DeleteAnExperience(Experience experience);
     }
 }

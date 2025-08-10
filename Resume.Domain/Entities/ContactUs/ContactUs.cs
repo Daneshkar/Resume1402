@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-
+﻿
 namespace Resume.Domain.Entities.ContactUs;
 
 public class ContactUs

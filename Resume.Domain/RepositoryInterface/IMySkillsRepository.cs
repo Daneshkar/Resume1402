@@ -1,4 +1,4 @@
-﻿using Resume.Presenation.Models.Entities.MySkills;
+﻿using Resume.Domain.Entities.MySkills;
 
 namespace Resume.Domain.RepositoryInterface
 {

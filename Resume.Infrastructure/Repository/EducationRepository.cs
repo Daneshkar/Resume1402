@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Resume.Domain.Models.Entities.Education;
+using Resume.Domain.Entities.Education;
 using Resume.Domain.RepositoryInterface;
 using Resume.Presenation.Models.ResumeDbContext;
 

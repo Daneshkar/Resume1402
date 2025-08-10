@@ -1,4 +1,4 @@
-﻿using Resume.Domain.Models.Entities.Education;
+﻿using Resume.Domain.Entities.Education;
 using Resume.Domain.RepositoryInterface;
 using Reume.Application.DTOs.AdminSide.Education;
 using Reume.Application.Services.Interface;

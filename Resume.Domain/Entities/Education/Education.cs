@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Resume.Domain.Models.Entities.Education;
+﻿
+namespace Resume.Domain.Entities.Education;
 
 public class Education
 {
@@ -12,5 +11,4 @@ public class Education
 
     public string? Description { get; set; }
 }
-
 

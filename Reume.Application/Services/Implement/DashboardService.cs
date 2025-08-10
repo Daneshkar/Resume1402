@@ -1,7 +1,7 @@
-﻿using Resume.Domain.Models.Entities.Education;
+﻿using Resume.Domain.Entities.Education;
+using Resume.Domain.Entities.Experience;
+using Resume.Domain.Entities.MySkills;
 using Resume.Domain.RepositoryInterface;
-using Resume.Presenation.Models.Entities.Experience;
-using Resume.Presenation.Models.Entities.MySkills;
 using Reume.Application.DTOs.SiteSide.Home_Index;
 using Reume.Application.Services.Interface;
 

@@ -1,4 +1,4 @@
-﻿using Resume.Presenation.Models.Entities.Experience;
+﻿using Resume.Domain.Entities.Experience;
 
 namespace Reume.Application.Services.Interface;
 
