@@ -65,20 +65,32 @@ public class ExperienceController : Controller
 
         #endregion
 
-        return View(experience);
+        var updateDto = new UpdateExperienceAdminSideDTO
+        {
+            Id = experience.Id,  // BTW, fix your DTO's Id field type (more on that below)
+            ExperienceTitle = experience.ExperienceTitle,
+            ExperienceDuration = experience.ExperienceDuration,
+            CompanyName = experience.CompanyName,
+            CompanySite = experience.CompanySite,
+            Description = experience.Description
+        };
+
+        return View(updateDto);
     }
 
+
+
     [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> EditAnExperience(Experience experience)
+    public async Task<IActionResult> EditAnExperience(UpdateExperienceAdminSideDTO model)
     {
-        #region Update An Experience
+        if (ModelState.IsValid)
+        {
+            await _experienceService.EditAnExperience(model);
 
-        await _experienceService.EditAnExperience(experience);
+            return RedirectToAction(nameof(ListOfExperiences));
+        }
 
-        return RedirectToAction(nameof(ListOfExperiences));
-
-        #endregion
-
+        return View(model);
     }
 
     #endregion

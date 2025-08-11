@@ -1,4 +1,4 @@
-﻿@model Resume.Domain.Entities.Experience.Experience;
+﻿@model Reume.Application.DTOs.AdminSide.Experience.UpdateExperienceAdminSideDTO
 
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
@@ -61,6 +61,12 @@
                                 <button type="submit" class="btn btn-primary">ارسال</button>
                             </div>
                         </form>
+
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            @Html.ValidationSummary(false, " مقدار وارد شده نامعتبر است", new { @class = "alert alert-danger", style = "text-align: center;" })
+                        }
+
                     </div>
                 </div>
             </div>

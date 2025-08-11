@@ -15,7 +15,7 @@ public interface IExperienceService
 
     Task<Experience> GetAnExperienceByIdAsync(int experienceId);
 
-    Task EditAnExperience(Experience experience);
+    Task EditAnExperience(UpdateExperienceAdminSideDTO model);
 
     Task DeleteAnExperience(Experience experience);
 }

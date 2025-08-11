@@ -66,10 +66,20 @@ public class ExperienceService : IExperienceService
 
     }
 
-    public async Task EditAnExperience(Experience experience)
+    public async Task EditAnExperience(UpdateExperienceAdminSideDTO model)
     {
+        var experience = await _experienceRepository.GetAnExperienceByIdAsync((int)model.Id);
+
+
+        experience.ExperienceDuration = model.ExperienceDuration;
+        experience.ExperienceTitle = model.ExperienceTitle;
+        experience.CompanyName = model.CompanyName;
+        experience.CompanySite = model.CompanySite;
+        experience.Description = model.Description;
+
         await _experienceRepository.EditAnExperience(experience);
     }
+
 
     public async Task DeleteAnExperience(Experience experience)
     {
