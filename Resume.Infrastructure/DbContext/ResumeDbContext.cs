@@ -16,9 +16,10 @@ public class ResumeDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source=DESKTOP-JCN2C1I\\MSSQLSERVER2019;Initial Catalog=ResumeDaneshkar;Integrated Security=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+        optionsBuilder.UseSqlServer("Data Source=(localdb)\\localDB1;Initial Catalog=ResumeDaneshkar;Integrated Security=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
         base.OnConfiguring(optionsBuilder);
     }
+
 
     #endregion
 
