@@ -40,7 +40,7 @@ public class DashboardService : IDashboardService
 
         #region Experience
 
-        List<Experience> experiences = _experienceService.GetListOfExperience();
+        List<Experience> experiences = _experienceService.GetListOfExperiences();
 
         #endregion
 

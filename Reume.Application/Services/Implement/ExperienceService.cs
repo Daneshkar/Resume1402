@@ -20,13 +20,13 @@ public class ExperienceService : IExperienceService
 
     public List<Experience> GetListOfExperiences()
     {
-        return _experienceRepository.GetListOfExperiences();
+        return _experienceRepository.GetListOfExperience();
     }
 
     public List<ListOfExperienceAdminSideDTO> GetListOfAnExperienceForShowinAdminPanel()
     {
         //Get List Of An Educations From DataBase   
-        List<Experience> experiences = _experienceRepository.GetListOfExperiences();
+        List<Experience> experiences = _experienceRepository.GetListOfExperience();
 
         //Object Mapping
         List<ListOfExperienceAdminSideDTO> returnModel = new List<ListOfExperienceAdminSideDTO>();
