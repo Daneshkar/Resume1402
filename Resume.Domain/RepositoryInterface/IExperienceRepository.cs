@@ -15,5 +15,6 @@ namespace Resume.Domain.RepositoryInterface
         Task EditAnExperience(Experience experience);
 
         Task DeleteAnExperience(Experience experience);
+        List<Experience> GetListOfExperiences();
     }
 }
