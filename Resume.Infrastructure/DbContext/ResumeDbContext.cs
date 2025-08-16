@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using Resume.Domain.Entities.ContactUs;
-using Resume.Domain.Models.Entities.Education;
-using Resume.Presenation.Models.Entities.Experience;
-using Resume.Presenation.Models.Entities.MySkills;
+using Resume.Domain.Entities.Education;
+using Resume.Domain.Entities.Experience;
+using Resume.Domain.Entities.MySkills;
 
 namespace Resume.Presenation.Models.ResumeDbContext;
 

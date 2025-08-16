@@ -1,14 +1,18 @@
-﻿namespace Reume.Application.DTOs.SiteSide.Home_Index;
+﻿using Resume.Domain.Entities.Education;
+using Resume.Domain.Entities.Experience;
+using Resume.Domain.Entities.MySkills;
+
+namespace Reume.Application.DTOs.SiteSide.Home_Index;
 
 public class HomeIndexModelDTO
 {
     #region properties
 
-    public List<Resume.Domain.Models.Entities.Education.Education> Educations { get; set; }
+    public List<Education> Educations { get; set; }
 
-    public List<Resume.Presenation.Models.Entities.Experience.Experience> Experience { get; set; }
+    public List<Experience> Experience { get; set; }
 
-    public List<Resume.Presenation.Models.Entities.MySkills.MySkills> MySkills { get; set; }
+    public List<MySkills> MySkills { get; set; }
 
     #endregion
 }

@@ -1,4 +1,4 @@
-﻿namespace Resume.Presenation.Models.Entities.Experience;
+﻿namespace Resume.Domain.Entities.Experience;
 
 public class Experience
 {
@@ -8,9 +8,9 @@ public class Experience
 
     public string ExperienceDuration { get; set; }
 
-    public string Description { get; set; }
-
     public string CompanyName { get; set; }
 
     public string? CompanySite { get; set; }
+
+    public string? Description { get; set; }
 }

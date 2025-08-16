@@ -1,5 +1,4 @@
-﻿@using Resume.Domain.Entities.Education
-@model Education
+﻿@model Resume.Domain.Entities.Experience.Experience;
 
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
@@ -7,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">ویرایش سابقه ی تحصیلی</h1>
+                    <h1 class="m-0 text-dark">حذف تجربه کاری</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
@@ -22,25 +21,33 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-primary">
+                    <div class="card card-danger">
                         <div class="card-header">
-                            <h3 class="card-title">ویرایش اطلاعات سوابق تحصیلی</h3>
+                            <h3 class="card-title">حذف اطلاعات تجربه کاری</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form asp-action="EditAnEducation" asp-area="AdminPanel" asp-controller="Education" method="post">
+                        <form asp-action="DeleteAnExperience" asp-area="AdminPanel" asp-controller="Experience" method="post">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Id</label>
-                                    <input type="text" readonly class="form-control" id="exampleInputEmail1" asp-for="Id" >
+                                    <input type="text" readonly class="form-control" id="exampleInputEmail1" asp-for="Id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">عنوان مدرک تحصیلی</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="EducationTitle" placeholder="عنوان مدرک تحصیلی را وارد کنید">
+                                    <label for="exampleInputEmail1">عنوان تجربه کاری</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="ExperienceTitle" placeholder="عنوان تجربه کاری را وارد کنید">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">بازه ی زمانی دریافت مدرک</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="EducationDuration" placeholder="بازه ی زمانی دریافت مدرک را وارد کنید">
+                                    <label for="exampleInputEmail1">بازه ی زمانی تجربه کاری</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="ExperienceDuration" placeholder="بازه ی زمانی تجربه کاری را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">نام شرکت</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="CompanyName" placeholder="نام شرکت را وارد کنید">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">سایت شرکت</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" asp-for="CompanySite" placeholder="سایت شرکت را وارد کنید">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">توضیحات</label>
@@ -50,7 +57,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">ارسال</button>
+                                <button type="submit" class="btn btn-danger">حذف</button>
                             </div>
                         </form>
                     </div>

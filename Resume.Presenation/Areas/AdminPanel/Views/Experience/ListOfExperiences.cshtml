@@ -1,6 +1,4 @@
-﻿@using Resume.Domain.Entities.Education
-@model List<Education>
-
+﻿@model List<Resume.Domain.Entities.Experience.Experience>
 
 <div class="content-wrapper" style="min-height: 265.6px;">
     <!-- Content Header (Page header) -->
@@ -8,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">لیست تحصیلات</h1>
+                    <h1 class="m-0 text-dark">لیست تجربه کاری</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-left">
@@ -26,7 +24,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">جدول تحصیلات</h3>
+                            <h3 class="card-title">جدول تجربه کاری</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body p-0">
@@ -34,37 +32,44 @@
                                 <tbody>
                                     <tr>
                                         <th style="width: 10px">#</th>
-                                        <th>نام مدرک تحصیلی</th>
+                                        <th>نام تجربه کاری</th>
                                         <th>بازه ی زمانی </th>
+                                        <th>نام شرکت</th>
+                                        <th>سایت شرکت </th>
                                         <th>توضیحات</th>
                                         <th>امکانت</th>
                                     </tr>
 
-                                    @foreach (var education in Model)
+                                    @foreach (var experience in Model)
                                     {
                                         <tr>
-                                            <td>@education.Id</td>
-                                            <td>@education.EducationTitle</td>
+                                            <td>@experience.Id</td>
+                                            <td>@experience.ExperienceTitle</td>
+
                                             <td>
-                                                @education.EducationDuration
+                                                @experience.ExperienceDuration
                                             </td>
+
+                                            <td>@experience.CompanyName</td>
+                                            <td>@experience.CompanySite</td>
+
                                             <td>
-                                                @education.Description
+                                                @experience.Description
                                             </td>
                                             <td>
                                                 <a class="badge badge-primary" style="cursor:pointer;"
-                                                   asp-action="EditAnEducation"
+                                                   asp-action="EditAnExperience"
                                                    asp-area="AdminPanel"
-                                                   asp-controller="Education"
-                                                   asp-route-educationId="@education.Id">
+                                                   asp-controller="Experience"
+                                                   asp-route-experienceId="@experience.Id">
                                                     ویرایش
-                                               </a>
+                                                </a>
 
                                                 <a class="badge badge-danger" style="cursor:pointer;"
-                                                   asp-action="DeleteAnEducation"
+                                                   asp-action="DeleteAnExperience"
                                                    asp-area="AdminPanel"
-                                                   asp-controller="Education"
-                                                   asp-route-educationId="@education.Id">حذف</a>
+                                                   asp-controller="Experience"
+                                                   asp-route-experienceId="@experience.Id">حذف</a>
                                             </td>
                                         </tr>
                                     }

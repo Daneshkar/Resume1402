@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Resume.Domain.Models.Entities.Education;
+using Resume.Domain.Entities.Education;
 using Reume.Application.DTOs.AdminSide.Education;
 using Reume.Application.Services.Interface;
 

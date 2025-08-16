@@ -1,4 +1,4 @@
-﻿using Resume.Domain.Models.Entities.Education;
+﻿using Resume.Domain.Entities.Education;
 
 namespace Resume.Domain.RepositoryInterface
 {

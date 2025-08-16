@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Resume.Presenation.Models.Entities.MySkills;
+using Resume.Domain.Entities.MySkills;
 using Reume.Application.Services.Implement;
 using Reume.Application.Services.Interface;
 
