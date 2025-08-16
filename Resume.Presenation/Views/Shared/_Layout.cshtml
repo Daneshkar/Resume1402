@@ -1,4 +1,8 @@
-﻿
+﻿@{
+	var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+	var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,12 +72,28 @@
 		</div>
 
 		<div class="nav-wrap">
+
 			<ul class="nav">
-				<li class="nav__item"><a href="about.html">About</a></li>
-				<li class="nav__item"><a class="active" href="resume.html">Resume</a></li>
-				<li class="nav__item"><a href="portfolio.html">Portfolio</a></li>
-				<li class="nav__item"><a href="blog.html">Blog</a></li>
-				<li class="nav__item"><a asp-action="ContactUs" asp-controller="ContactUs" asp-area="">Contact</a></li>
+				<li class="nav__item">
+					<a asp-controller="Home" asp-action="About"
+					   class="@(currentController == "Home" && currentAction == "index" ? "active" : "")">About</a>
+				</li>
+				<li class="nav__item">
+					<a asp-controller="Home" asp-action="Index"
+					   class="@(currentController == "Home" ? "active" : "")">Resume</a>
+				</li>
+				<li class="nav__item">
+					<a asp-controller="Portfolio" asp-action="Index"
+					   class="@(currentController == "Portfolio" ? "active" : "")">Portfolio</a>
+				</li>
+				<li class="nav__item">
+					<a asp-controller="Blog" asp-action="Index"
+					   class="@(currentController == "Blog" ? "active" : "")">Blog</a>
+				</li>
+				<li class="nav__item">
+					<a asp-controller="Contact" asp-action="Index"
+					   class="@(currentController == "Contact" ? "active" : "")">Contact</a>
+				</li>
 			</ul>
 		</div>
 
